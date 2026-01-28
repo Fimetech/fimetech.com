@@ -6,19 +6,20 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Hero section with animated gradient mesh background
+ * Hero section with futuristic geometric grid and particle effects
  */
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
 
       setMousePosition({ x, y });
     };
@@ -31,26 +32,129 @@ export function Hero() {
     };
   }, []);
 
+  // Particle system animation
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    setCanvasSize();
+    window.addEventListener("resize", setCanvasSize);
+
+    // Particle configuration
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      opacity: number;
+    }> = [];
+
+    const particleCount = 50;
+    const connectionDistance = 150;
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.2,
+      });
+    }
+
+    let animationId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update and draw particles
+      particles.forEach((particle, i) => {
+        // Move particle
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        // Bounce off edges
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(87, 172, 39, ${particle.opacity})`;
+        ctx.fill();
+
+        // Draw connections
+        particles.forEach((otherParticle, j) => {
+          if (i === j) return;
+
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            const opacity = (1 - distance / connectionDistance) * 0.2;
+            ctx.strokeStyle = `rgba(87, 172, 39, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", setCanvasSize);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
   return (
     <section
       ref={containerRef}
       className='relative flex min-h-screen items-center justify-center overflow-hidden'
     >
-      {/* Animated Gradient Background */}
+      {/* Base dark gradient */}
+      <div className='hero-base-gradient' />
+
+      {/* Geometric grid pattern */}
+      <div className='hero-grid-pattern' />
+
+      {/* Interactive glow that follows mouse */}
       <div
-        className='hero-gradient'
+        className='hero-interactive-glow'
         style={{
-          backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
+          background: `radial-gradient(600px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(87, 172, 39, 0.15), transparent 40%)`,
         }}
       />
 
-      {/* Noise Overlay for texture */}
-      <div
-        className='pointer-events-none absolute inset-0 opacity-[0.015]'
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
+      {/* Particle system canvas */}
+      <canvas
+        ref={canvasRef}
+        className='pointer-events-none absolute inset-0 opacity-60'
       />
+
+      {/* Scan lines for tech aesthetic */}
+      <div className='hero-scan-lines' />
+
+      {/* Vignette for depth */}
+      <div className='hero-vignette' />
 
       {/* Content */}
       <div className='relative z-10 mx-auto max-w-[var(--content-width)] px-6 text-center'>
@@ -61,7 +165,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            textShadow: "0 0 80px rgba(0, 102, 255, 0.3)",
+            textShadow: "0 0 80px rgba(87, 172, 39, 0.3)",
           }}
         >
           {siteConfig.name.toUpperCase()}

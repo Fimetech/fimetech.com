@@ -15,9 +15,9 @@ const categoryLabels = {
 };
 
 const categoryColors = {
-  "ai-ml": "border-accent-blue/30 bg-accent-blue/10 text-accent-blue",
-  embedded: "border-accent-teal/30 bg-accent-teal/10 text-accent-teal",
-  robotics: "border-accent-purple/30 bg-accent-purple/10 text-accent-purple",
+  "ai-ml": "border-accent-green/30 bg-accent-green/10 text-accent-green",
+  embedded: "border-accent-lime/30 bg-accent-lime/10 text-accent-lime",
+  robotics: "border-accent-emerald/30 bg-accent-emerald/10 text-accent-emerald",
 };
 
 export async function generateStaticParams() {
@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className='grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4'>
               {project.metrics.map((metric) => (
                 <div key={metric.label}>
-                  <div className='font-[family-name:var(--font-jetbrains-mono)] text-3xl font-bold text-accent-blue'>
+                  <div className='font-[family-name:var(--font-jetbrains-mono)] text-3xl font-bold text-accent-green'>
                     {metric.value}
                   </div>
                   <div className='mt-1 text-sm text-text-muted'>

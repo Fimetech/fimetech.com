@@ -4,8 +4,8 @@ Follow these steps to deploy Fimetech website to Vercel with automatic GitHub in
 
 ## Prerequisites
 
-✅ GitHub repository created  
-✅ Code pushed to GitHub  
+✅ GitHub repository created
+✅ Code pushed to GitHub
 ✅ Vercel account (free)
 
 ---
@@ -27,6 +27,7 @@ This is the **easiest** method and provides full automation without any configur
    - Click "Import"
 
 4. **Configure (auto-detected)**
+
    ```
    Framework Preset: Next.js ✓
    Root Directory: ./ ✓
@@ -34,7 +35,7 @@ This is the **easiest** method and provides full automation without any configur
    Output Directory: .next ✓
    Install Command: npm install ✓
    ```
-   
+
 5. **Click "Deploy"**
    - Wait 2-3 minutes
    - Get your URL: `https://fimetech.vercel.app`
@@ -42,6 +43,7 @@ This is the **easiest** method and provides full automation without any configur
 ### ✨ That's It!
 
 **Automatic Deployment is Now Active:**
+
 - Push to `main` → Deploys to production
 - Push to any branch → Creates preview deployment
 - Open PR → Vercel bot comments with preview URL
@@ -79,7 +81,7 @@ git checkout -b feature/new-animation
 git commit -m "Add hero animation"
 git push origin feature/new-animation
 
-# ✓ Vercel creates preview: 
+# ✓ Vercel creates preview:
 #   https://fimetech-git-feature-new-animation.vercel.app
 
 # Merge to main when ready
@@ -92,6 +94,7 @@ git push origin main
 ```
 
 ### Every Deployment:
+
 - ✅ Runs TypeScript checks
 - ✅ Builds production bundle
 - ✅ Generates static pages
@@ -111,6 +114,7 @@ After initial deployment:
    - Add: `fimetech.com`
 
 2. **Update DNS:**
+
    ```
    A Record: @ → 76.76.19.61
    CNAME: www → cname.vercel-dns.com
@@ -139,6 +143,7 @@ https://YOUR-PROJECT.vercel.app/robots.txt    # Robots
 ## Troubleshooting
 
 ### Build Failed?
+
 ```bash
 # Test locally first
 npm run build
@@ -150,6 +155,7 @@ git push
 ```
 
 ### Need Help?
+
 - Check `DEPLOYMENT.md` for detailed guide
 - View build logs in Vercel dashboard
 - [Vercel Support](https://vercel.com/support)

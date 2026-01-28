@@ -30,7 +30,7 @@ export default function ConnectPage() {
                 </h3>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className='mt-1 block text-lg text-text-primary transition-colors hover:text-accent-blue'
+                  className='mt-1 block text-lg text-text-primary transition-colors hover:text-accent-green'
                 >
                   {siteConfig.email}
                 </a>
@@ -53,15 +53,15 @@ export default function ConnectPage() {
                 </h3>
                 <ul className='mt-2 space-y-2 text-sm text-text-secondary'>
                   <li className='flex items-start'>
-                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-blue' />
+                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-green' />
                     A brief description of your project or challenge
                   </li>
                   <li className='flex items-start'>
-                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-blue' />
+                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-green' />
                     Technical constraints or requirements
                   </li>
                   <li className='flex items-start'>
-                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-blue' />
+                    <span className='mr-2 mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent-green' />
                     Timeline and scope (if known)
                   </li>
                 </ul>
@@ -85,7 +85,7 @@ export default function ConnectPage() {
                   id='name'
                   name='name'
                   required
-                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-blue focus:outline-none focus:ring-1 focus:ring-accent-blue'
+                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-green focus:outline-none focus:ring-1 focus:ring-accent-green'
                   placeholder='Your name'
                 />
               </div>
@@ -103,7 +103,7 @@ export default function ConnectPage() {
                   id='email'
                   name='email'
                   required
-                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-blue focus:outline-none focus:ring-1 focus:ring-accent-blue'
+                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-green focus:outline-none focus:ring-1 focus:ring-accent-green'
                   placeholder='you@company.com'
                 />
               </div>
@@ -120,7 +120,7 @@ export default function ConnectPage() {
                   type='text'
                   id='company'
                   name='company'
-                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-blue focus:outline-none focus:ring-1 focus:ring-accent-blue'
+                  className='w-full rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-green focus:outline-none focus:ring-1 focus:ring-accent-green'
                   placeholder='Your company'
                 />
               </div>
@@ -138,7 +138,7 @@ export default function ConnectPage() {
                   name='message'
                   required
                   rows={5}
-                  className='w-full resize-none rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-blue focus:outline-none focus:ring-1 focus:ring-accent-blue'
+                  className='w-full resize-none rounded-lg border border-glass-border bg-bg-void/50 px-4 py-3 text-text-primary placeholder:text-text-muted/50 focus:border-accent-green focus:outline-none focus:ring-1 focus:ring-accent-green'
                   placeholder='Tell us about your project...'
                 />
               </div>
@@ -146,7 +146,7 @@ export default function ConnectPage() {
               {/* Submit */}
               <button
                 type='submit'
-                className='w-full rounded-xl bg-accent-blue px-6 py-4 font-medium text-white transition-all hover:bg-accent-blue/90 hover:shadow-[0_0_20px_rgba(0,102,255,0.4)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
+                className='w-full rounded-xl bg-accent-green px-6 py-4 font-medium text-white transition-all hover:bg-accent-green/90 hover:shadow-[0_0_20px_rgba(87,172,39,0.4)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
               >
                 Send Message
               </button>

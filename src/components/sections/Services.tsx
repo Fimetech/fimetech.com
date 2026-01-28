@@ -84,7 +84,7 @@ export function Services() {
               <Link href={service.href} className='block h-full'>
                 <Card interactive className='group h-full'>
                   {/* Icon */}
-                  <div className='mb-6 text-text-secondary transition-colors group-hover:text-accent-blue'>
+                  <div className='mb-6 text-text-secondary transition-colors group-hover:text-accent-green'>
                     {icons[service.id as keyof typeof icons]}
                   </div>
 
@@ -107,7 +107,7 @@ export function Services() {
                   </div>
 
                   {/* Arrow */}
-                  <div className='mt-6 flex items-center text-sm text-text-muted transition-colors group-hover:text-accent-blue'>
+                  <div className='mt-6 flex items-center text-sm text-text-muted transition-colors group-hover:text-accent-green'>
                     <span>Learn more</span>
                     <svg
                       className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1'

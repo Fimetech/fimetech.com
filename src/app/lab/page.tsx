@@ -16,9 +16,9 @@ const categoryLabels = {
 };
 
 const categoryColors = {
-  "ai-ml": "border-accent-blue/30 bg-accent-blue/10 text-accent-blue",
-  embedded: "border-accent-teal/30 bg-accent-teal/10 text-accent-teal",
-  robotics: "border-accent-purple/30 bg-accent-purple/10 text-accent-purple",
+  "ai-ml": "border-accent-green/30 bg-accent-green/10 text-accent-green",
+  embedded: "border-accent-lime/30 bg-accent-lime/10 text-accent-lime",
+  robotics: "border-accent-emerald/30 bg-accent-emerald/10 text-accent-emerald",
 };
 
 export default function LabPage() {
@@ -60,7 +60,7 @@ export default function LabPage() {
                   {categoryLabels[project.category]}
                 </span>
 
-                <CardTitle className='mb-2 group-hover:text-accent-blue transition-colors'>
+                <CardTitle className='mb-2 group-hover:text-accent-green transition-colors'>
                   {project.title}
                 </CardTitle>
                 <CardDescription className='mb-4'>
@@ -72,7 +72,7 @@ export default function LabPage() {
                   <div className='mb-4 grid grid-cols-3 gap-4'>
                     {project.metrics.map((metric) => (
                       <div key={metric.label}>
-                        <div className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-accent-blue'>
+                        <div className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-accent-green'>
                           {metric.value}
                         </div>
                         <div className='text-xs text-text-muted'>
@@ -121,7 +121,7 @@ export default function LabPage() {
                   >
                     {categoryLabels[project.category]}
                   </span>
-                  <h3 className='font-[family-name:var(--font-geist)] font-semibold text-text-primary group-hover:text-accent-blue transition-colors'>
+                  <h3 className='font-[family-name:var(--font-geist)] font-semibold text-text-primary group-hover:text-accent-green transition-colors'>
                     {project.title}
                   </h3>
                   <p className='mt-1 text-sm text-text-secondary'>

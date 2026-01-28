@@ -8,6 +8,14 @@ export const siteConfig = {
   url: "https://fimetech.com",
   tagline: "We engineer intelligence into machines.",
   email: "hello@fimetech.com",
+  logo: {
+    // Logo dimensions (adjust based on your actual logo)
+    width: 180,
+    height: 45,
+    // Logo will be automatically detected from /public/logo/ directory
+    // Supported formats: SVG (preferred), WebP, PNG
+    path: "/logo/logo", // extension will be auto-detected
+  },
 } as const;
 
 /**

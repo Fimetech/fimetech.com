@@ -1,5 +1,6 @@
 "use client";
 
+import { Logo } from "@/components/ui";
 import { navLinks, siteConfig } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -32,9 +33,10 @@ export function Header() {
         {/* Logo */}
         <Link
           href='/'
-          className='font-[family-name:var(--font-geist)] text-xl font-bold tracking-tight text-text-primary transition-opacity hover:opacity-80'
+          className='block transition-opacity hover:opacity-80'
+          aria-label={`${siteConfig.name} home`}
         >
-          {siteConfig.name}
+          <Logo className='h-8 w-auto' priority />
         </Link>
 
         {/* Desktop Navigation */}

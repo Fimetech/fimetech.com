@@ -35,6 +35,7 @@ vercel
 ```
 
 That's it! Vercel will:
+
 1. Build your project
 2. Deploy to production
 3. Give you a URL: `https://fimetech.vercel.app`
@@ -50,6 +51,7 @@ Follow the detailed steps below.
 ### Step 1: Prepare GitHub Repository
 
 1. **Ensure your code is committed:**
+
    ```bash
    git status
    # If changes exist:
@@ -58,12 +60,13 @@ Follow the detailed steps below.
    ```
 
 2. **Push to GitHub:**
+
    ```bash
    # If repository doesn't exist yet
    git remote add origin https://github.com/YOUR_USERNAME/fimetech.com.git
    git branch -M main
    git push -u origin main
-   
+
    # If repository exists
    git push origin main
    ```
@@ -94,6 +97,7 @@ Follow the detailed steps below.
 Vercel will auto-detect Next.js. Verify settings:
 
 #### Build & Development Settings
+
 ```
 Framework Preset:     Next.js (auto-detected)
 Root Directory:       ./
@@ -104,7 +108,9 @@ Development Command:  npm run dev (auto-detected)
 ```
 
 #### Environment Variables (Optional)
+
 Currently not needed. Add later when implementing:
+
 - Form submission (Resend API key)
 - Analytics (Vercel Analytics)
 - CMS integration (Sanity tokens)
@@ -137,14 +143,17 @@ Currently not needed. Add later when implementing:
 **This is automatic!** Vercel now:
 
 ✅ **Main Branch → Production**
+
 - Every push to `main` triggers production deployment
 - URL: `https://fimetech.vercel.app` (or your custom domain)
 
 ✅ **Feature Branches → Preview**
+
 - Every push to any branch creates preview deployment
 - URL: `https://fimetech-git-BRANCH_NAME-TEAM.vercel.app`
 
 ✅ **Pull Requests → Preview Comments**
+
 - Vercel bot comments on PRs with preview URL
 - Test changes before merging
 
@@ -160,18 +169,20 @@ Currently not needed. Add later when implementing:
 2. **Configure DNS at your registrar:**
 
    **Option A: Use Vercel Nameservers (Recommended)**
+
    ```
    ns1.vercel-dns.com
    ns2.vercel-dns.com
    ```
 
    **Option B: Use Custom DNS**
+
    ```
    Type: A
    Name: @
    Value: 76.76.19.61
    TTL: 3600
-   
+
    Type: CNAME
    Name: www
    Value: cname.vercel-dns.com
@@ -226,6 +237,7 @@ git push origin main
 ### Rollback if Needed
 
 In Vercel Dashboard:
+
 1. Go to Deployments
 2. Find previous working deployment
 3. Click "⋯" → "Promote to Production"
@@ -242,10 +254,11 @@ In Vercel Dashboard:
    - Toggle "Enable Analytics"
 
 2. **Add to Code:**
+
    ```tsx
    // src/app/layout.tsx
-   import { Analytics } from '@vercel/analytics/react';
-   
+   import { Analytics } from "@vercel/analytics/react";
+
    export default function RootLayout({ children }) {
      return (
        <html>
@@ -261,6 +274,7 @@ In Vercel Dashboard:
 ### Vercel Speed Insights
 
 Monitor Core Web Vitals:
+
 ```bash
 npm install @vercel/speed-insights
 
@@ -338,9 +352,11 @@ Before launching to custom domain:
 ## Support
 
 **Vercel Issues:**
+
 - [Vercel Support](https://vercel.com/support)
 - [Vercel Discord](https://vercel.com/discord)
 
 **Project Issues:**
+
 - Create issue on GitHub repository
 - Contact: hello@fimetech.com

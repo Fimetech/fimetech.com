@@ -30,7 +30,7 @@ export function LabTeaser() {
                     {Array.from({ length: 64 }).map((_, i) => (
                       <div
                         key={i}
-                        className='h-4 w-4 rounded-sm bg-accent-blue'
+                        className='h-4 w-4 rounded-sm bg-accent-green'
                         style={{
                           opacity: Math.random() * 0.5 + 0.2,
                           animationDelay: `${i * 50}ms`,
@@ -45,7 +45,7 @@ export function LabTeaser() {
 
                 {/* Project Info Overlay */}
                 <div className='absolute inset-x-0 bottom-0 p-6 md:p-8'>
-                  <span className='mb-2 inline-block rounded-full border border-accent-teal/30 bg-accent-teal/10 px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-accent-teal'>
+                  <span className='mb-2 inline-block rounded-full border border-accent-lime/30 bg-accent-lime/10 px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-accent-lime'>
                     Featured Project
                   </span>
 
@@ -98,8 +98,8 @@ export function LabTeaser() {
             </div>
 
             {/* Decorative elements */}
-            <div className='absolute -right-4 -top-4 h-32 w-32 rounded-full bg-accent-blue/5 blur-3xl' />
-            <div className='absolute -bottom-4 -left-4 h-24 w-24 rounded-full bg-accent-teal/5 blur-3xl' />
+            <div className='absolute -right-4 -top-4 h-32 w-32 rounded-full bg-accent-green/5 blur-3xl' />
+            <div className='absolute -bottom-4 -left-4 h-24 w-24 rounded-full bg-accent-lime/5 blur-3xl' />
           </div>
         </RevealOnScroll>
 

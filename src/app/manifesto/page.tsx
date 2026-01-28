@@ -65,9 +65,9 @@ const skills = [
 ];
 
 const categoryColors = {
-  ai: "bg-accent-blue/20 border-accent-blue/30 text-accent-blue",
-  embedded: "bg-accent-teal/20 border-accent-teal/30 text-accent-teal",
-  robotics: "bg-accent-purple/20 border-accent-purple/30 text-accent-purple",
+  ai: "bg-accent-green/20 border-accent-green/30 text-accent-green",
+  embedded: "bg-accent-lime/20 border-accent-lime/30 text-accent-lime",
+  robotics: "bg-accent-emerald/20 border-accent-emerald/30 text-accent-emerald",
 };
 
 export default function ManifestoPage() {
@@ -92,7 +92,7 @@ export default function ManifestoPage() {
               key={principle.number}
               className='glass glass-glow rounded-2xl p-6'
             >
-              <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-accent-blue'>
+              <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-accent-green'>
                 {principle.number}
               </span>
               <h3 className='mt-3 font-[family-name:var(--font-geist)] text-lg font-semibold text-text-primary'>
@@ -134,15 +134,15 @@ export default function ManifestoPage() {
           {/* Legend */}
           <div className='mt-8 flex flex-wrap gap-6 text-sm'>
             <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-blue/50' />
+              <span className='h-3 w-3 rounded-full bg-accent-green/50' />
               <span className='text-text-muted'>AI / ML</span>
             </div>
             <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-teal/50' />
+              <span className='h-3 w-3 rounded-full bg-accent-lime/50' />
               <span className='text-text-muted'>Embedded</span>
             </div>
             <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-purple/50' />
+              <span className='h-3 w-3 rounded-full bg-accent-emerald/50' />
               <span className='text-text-muted'>Robotics</span>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function ManifestoPage() {
 
       {/* Quote / Philosophy */}
       <section className='mx-auto max-w-[var(--content-width)] px-6 py-24'>
-        <blockquote className='border-l-2 border-accent-blue pl-6'>
+        <blockquote className='border-l-2 border-accent-green pl-6'>
           <p className='font-[family-name:var(--font-geist)] text-xl font-medium italic text-text-primary md:text-2xl'>
             &ldquo;The best code is no code at all. The second best is code so
             clear it explains itself.&rdquo;

@@ -14,7 +14,7 @@ export default async function Image() {
   return new ImageResponse(
     <div
       style={{
-        background: "linear-gradient(135deg, #050508 0%, #0a0f1a 100%)",
+        background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -33,7 +33,7 @@ export default async function Image() {
           width: "400px",
           height: "400px",
           background:
-            "radial-gradient(circle, rgba(0,102,255,0.3) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(87,172,39,0.3) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -45,7 +45,7 @@ export default async function Image() {
           width: "300px",
           height: "300px",
           background:
-            "radial-gradient(circle, rgba(0,212,170,0.2) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(132,204,22,0.2) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -65,7 +65,7 @@ export default async function Image() {
             fontWeight: 700,
             color: "#ffffff",
             letterSpacing: "-0.03em",
-            textShadow: "0 0 80px rgba(0, 102, 255, 0.3)",
+            textShadow: "0 0 80px rgba(87, 172, 39, 0.3)",
           }}
         >
           {siteConfig.name.toUpperCase()}

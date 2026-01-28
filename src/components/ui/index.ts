@@ -7,3 +7,4 @@ export {
   CardTitle,
   type CardProps,
 } from "./Card";
+export { Logo } from "./Logo";

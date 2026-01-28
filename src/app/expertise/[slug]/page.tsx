@@ -227,7 +227,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
                     key={item}
                     className='flex items-center text-sm text-text-secondary'
                   >
-                    <span className='mr-2 h-1 w-1 rounded-full bg-accent-blue' />
+                    <span className='mr-2 h-1 w-1 rounded-full bg-accent-green' />
                     {item}
                   </li>
                 ))}

@@ -19,7 +19,7 @@ Elite engineering consultancy website built with Next.js 16, TypeScript, and Tai
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, or pnpm
 
 ### Installation
@@ -118,20 +118,23 @@ git push -u origin main
 1. In Vercel dashboard, go to **Project Settings → Domains**
 2. **Add domain:** `fimetech.com`
 3. **Update DNS records** at your domain registrar:
+
    ```
    Type: A
    Name: @
    Value: 76.76.19.61
-   
+
    Type: CNAME
    Name: www
    Value: cname.vercel-dns.com
    ```
+
 4. Wait for DNS propagation (5-60 minutes)
 
 #### Automatic Deployment Workflow
 
 Once connected, Vercel automatically:
+
 - ✅ **Deploys `main` branch** to production (fimetech.com)
 - ✅ **Creates preview deployments** for every PR
 - ✅ **Runs builds** on every commit

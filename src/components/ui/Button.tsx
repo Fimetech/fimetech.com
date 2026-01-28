@@ -31,13 +31,13 @@ const buttonStyles = (
   cn(
     // Base styles
     "inline-flex items-center justify-center font-medium transition-all duration-300",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg-void",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-green focus-visible:ring-offset-2 focus-visible:ring-offset-bg-void",
     "disabled:pointer-events-none disabled:opacity-50",
 
     // Variants
     variant === "primary" && [
-      "bg-accent-blue text-white",
-      "hover:bg-accent-blue/90 hover:shadow-[0_0_20px_rgba(0,102,255,0.4)]",
+      "bg-accent-green text-white",
+      "hover:bg-accent-green/90 hover:shadow-[0_0_20px_rgba(87,172,39,0.4)]",
       "active:scale-[0.98]",
     ],
     variant === "ghost" && [
@@ -46,8 +46,8 @@ const buttonStyles = (
       "active:scale-[0.98]",
     ],
     variant === "outline" && [
-      "border border-accent-blue/50 bg-transparent text-accent-blue",
-      "hover:bg-accent-blue/10 hover:border-accent-blue",
+      "border border-accent-green/50 bg-transparent text-accent-green",
+      "hover:bg-accent-green/10 hover:border-accent-green",
       "active:scale-[0.98]",
     ],
 
