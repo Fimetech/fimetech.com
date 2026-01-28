@@ -32,7 +32,7 @@ export function Hero() {
     };
   }, []);
 
-  // Particle system animation
+  // Particle system animation with green color variants
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -48,6 +48,13 @@ export function Hero() {
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
 
+    // Green color palette with varying brightness
+    const greenShades = [
+      { r: 87, g: 172, b: 39 }, // Brand green
+      { r: 111, g: 200, b: 58 }, // Lighter green
+      { r: 70, g: 140, b: 30 }, // Darker green
+    ];
+
     // Particle configuration
     const particles: Array<{
       x: number;
@@ -56,12 +63,13 @@ export function Hero() {
       vy: number;
       size: number;
       opacity: number;
+      color: { r: number; g: number; b: number };
     }> = [];
 
     const particleCount = 50;
     const connectionDistance = 150;
 
-    // Initialize particles
+    // Initialize particles with green shades
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -69,7 +77,8 @@ export function Hero() {
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.4 + 0.2,
+        color: greenShades[Math.floor(Math.random() * greenShades.length)],
       });
     }
 
@@ -89,9 +98,10 @@ export function Hero() {
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
         // Draw particle
+        const { r, g, b } = particle.color;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(87, 172, 39, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.opacity})`;
         ctx.fill();
 
         // Draw connections
@@ -106,7 +116,7 @@ export function Hero() {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            const opacity = (1 - distance / connectionDistance) * 0.2;
+            const opacity = (1 - distance / connectionDistance) * 0.15;
             ctx.strokeStyle = `rgba(87, 172, 39, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
@@ -180,6 +190,36 @@ export function Hero() {
         >
           {siteConfig.tagline}
         </motion.p>
+
+        {/* Company Stats - temporarily hidden, to be used later
+        <motion.div
+          className='mx-auto mt-8 flex flex-wrap items-center justify-center gap-6 text-sm md:gap-8'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className='flex items-center gap-2'>
+            <span className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-green-500'>
+              {new Date().getFullYear() - siteConfig.founded}+
+            </span>
+            <span className='text-text-muted'>years</span>
+          </div>
+          <div className='h-4 w-px bg-glass-border' />
+          <div className='flex items-center gap-2'>
+            <span className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-green-500'>
+              {siteConfig.teamSize}
+            </span>
+            <span className='text-text-muted'>engineers</span>
+          </div>
+          <div className='h-4 w-px bg-glass-border' />
+          <div className='flex items-center gap-2'>
+            <span className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-green-500'>
+              {siteConfig.spinoffs}
+            </span>
+            <span className='text-text-muted'>spin-offs</span>
+          </div>
+        </motion.div>
+        */}
 
         {/* CTA */}
         <motion.div

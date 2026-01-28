@@ -73,7 +73,7 @@ export default function ExpertisePage() {
           {services.map((service) => (
             <Link key={service.id} href={service.href} className='block group'>
               <Card interactive className='h-full'>
-                <div className='mb-6 text-text-secondary transition-colors group-hover:text-accent-green'>
+                <div className='mb-6 text-text-secondary transition-colors group-hover:text-green-500'>
                   {icons[service.id as keyof typeof icons]}
                 </div>
                 <CardTitle className='mb-3'>{service.title}</CardTitle>
@@ -124,7 +124,7 @@ export default function ExpertisePage() {
               },
             ].map((item) => (
               <div key={item.step}>
-                <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-accent-green'>
+                <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-green-500'>
                   {item.step}
                 </span>
                 <h3 className='mt-2 font-[family-name:var(--font-geist)] text-lg font-semibold text-text-primary'>

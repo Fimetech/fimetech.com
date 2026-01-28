@@ -1,5 +1,5 @@
 import { ButtonLink } from "@/components/ui";
-import { services } from "@/lib/constants";
+import { services, type ExpertiseCategory } from "@/lib/constants";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,140 +8,279 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const expertiseContent = {
+interface ExpertiseContent {
+  title: string;
+  subtitle: string;
+  description: string;
+  capabilities: {
+    title: string;
+    items: string[];
+  }[];
+  technologies: string[];
+}
+
+const expertiseContent: Record<ExpertiseCategory, ExpertiseContent> = {
   "ai-ml": {
-    title: "AI / Machine Learning",
+    title: "AI & Machine Learning",
     subtitle: "Intelligent systems that learn, adapt, and scale.",
     description:
-      "We build production-grade AI systems that go beyond proof-of-concept. From computer vision pipelines to natural language processing, we engineer intelligence that performs reliably in the real world.",
+      "We build production-grade AI systems that go beyond proof-of-concept. From computer vision pipelines processing satellite imagery to conversational AI handling millions of queries, we engineer intelligence that performs reliably in the real world.",
     capabilities: [
       {
         title: "Computer Vision",
         items: [
-          "Object detection and tracking",
+          "Object detection & tracking",
           "Semantic segmentation",
-          "3D reconstruction",
+          "Medical imaging & diagnostics",
           "Video analytics",
+          "3D reconstruction",
         ],
       },
       {
-        title: "Natural Language",
+        title: "Natural Language & GenAI",
         items: [
+          "Large Language Models",
+          "RAG pipelines",
+          "Agent-based systems",
           "Document understanding",
-          "Information extraction",
-          "Conversational AI",
           "Semantic search",
         ],
       },
       {
-        title: "ML Infrastructure",
+        title: "Audio & Multimodal",
         items: [
-          "Model optimization",
-          "Edge deployment",
-          "MLOps pipelines",
-          "A/B testing frameworks",
+          "Speech recognition (ASR)",
+          "Voice activity detection",
+          "Emotion recognition",
+          "Multimodal fusion",
+        ],
+      },
+      {
+        title: "Predictive Intelligence",
+        items: [
+          "Predictive analytics",
+          "Recommendation systems",
+          "Anomaly detection",
+          "Risk modeling",
         ],
       },
     ],
     technologies: [
       "PyTorch",
       "TensorFlow",
-      "ONNX",
-      "CUDA",
       "TensorRT",
-      "Triton",
-      "MLflow",
-      "Kubernetes",
+      "ONNX",
+      "OpenCV",
+      "LangChain",
+      "LlamaIndex",
+      "OpenAI",
+      "Hugging Face",
+      "Pinecone",
+      "Milvus",
+      "XGBoost",
+      "Scikit-learn",
+      "SpaCy",
+      "Whisper",
+      "Kaldi",
+      "AutoGen",
+    ],
+  },
+  data: {
+    title: "Data Engineering & Analytics",
+    subtitle: "Robust data systems that capture, process, and illuminate.",
+    description:
+      "We architect data systems that handle the full lifecycle—from ingestion and transformation to analysis and visualization. Whether building real-time pipelines for streaming data or designing warehouses for petabyte-scale analytics, we ensure your data infrastructure is reliable, scalable, and insight-ready.",
+    capabilities: [
+      {
+        title: "Data Architecture",
+        items: [
+          "Data warehouse design",
+          "Lake/Lakehouse architecture",
+          "Schema design",
+          "Data modeling",
+        ],
+      },
+      {
+        title: "Pipelines & Processing",
+        items: [
+          "ETL/ELT development",
+          "Stream processing",
+          "Batch processing",
+          "Data orchestration",
+        ],
+      },
+      {
+        title: "Analytics & BI",
+        items: [
+          "Business intelligence",
+          "Interactive dashboards",
+          "KPI frameworks",
+          "Self-service analytics",
+        ],
+      },
+      {
+        title: "Data Operations",
+        items: [
+          "Data quality assurance",
+          "Annotation pipelines",
+          "Governance & lineage",
+          "System integration",
+        ],
+      },
+    ],
+    technologies: [
+      "PostgreSQL",
+      "Snowflake",
+      "BigQuery",
+      "Databricks",
+      "Redshift",
+      "MongoDB",
+      "Redis",
+      "Kafka",
+      "Spark",
+      "Airflow",
+      "dbt",
+      "Fivetran",
+      "Tableau",
+      "Looker",
+      "Metabase",
+      "D3.js",
+      "Firebase",
     ],
   },
   embedded: {
-    title: "Embedded Systems",
-    subtitle: "Hardware-software integration at the edge.",
+    title: "Embedded & Systems",
+    subtitle:
+      "Engineering at the metal—compilers, firmware, and hardware integration.",
     description:
-      "We design and implement firmware and embedded software for resource-constrained environments. From sensor interfaces to real-time operating systems, we build software that runs reliably on the metal.",
+      "We operate at the lowest levels of the stack, where microseconds matter and every byte counts. From custom LLVM-based compilers for novel architectures to DSP libraries optimized for real-time processing, we build the foundation that high-performance systems run on.",
     capabilities: [
       {
-        title: "Firmware Development",
+        title: "Compiler & Toolchain",
         items: [
-          "Bare-metal programming",
+          "LLVM-based compilers",
+          "Assembler development",
+          "Code generation",
+          "Optimization passes",
+          "Verification & validation",
+        ],
+      },
+      {
+        title: "EDA & Chip Design",
+        items: [
+          "Frontend R&D",
+          "Simulation (Simulink)",
+          "Place & route",
+          "Bitstream generation",
+          "RTL testing",
+        ],
+      },
+      {
+        title: "DSP & Signal Processing",
+        items: [
+          "DSP library development",
+          "FIR/IIR filters",
+          "Kalman filtering",
+          "Real-time processing",
+          "Audio codecs",
+        ],
+      },
+      {
+        title: "Hardware Integration",
+        items: [
+          "Firmware development",
           "RTOS integration",
-          "Bootloader design",
-          "OTA updates",
-        ],
-      },
-      {
-        title: "Hardware Interfaces",
-        items: [
-          "Sensor integration",
-          "Motor control",
-          "Communication protocols",
-          "Power management",
-        ],
-      },
-      {
-        title: "System Design",
-        items: [
-          "Architecture review",
-          "Component selection",
-          "Thermal analysis",
-          "EMC compliance",
+          "BLE/Wireless",
+          "Embedded AI optimization",
+          "Platform porting",
         ],
       },
     ],
     technologies: [
-      "C++",
+      "C/C++",
       "Rust",
+      "Assembly",
+      "LLVM",
+      "GCC",
+      "RISC-V",
+      "ARM",
+      "FPGA",
+      "Verilog",
+      "SystemC",
       "Zephyr",
       "FreeRTOS",
-      "FPGA",
-      "ARM",
-      "RISC-V",
-      "CAN",
+      "NVIDIA Jetson",
+      "Raspberry Pi",
+      "XMOS",
+      "Rockchip",
+      "Qt",
+      "Boost",
+      "CMake",
+      "EtherCAT",
     ],
   },
   robotics: {
-    title: "Robotics",
-    subtitle: "Autonomous machines that perceive and act.",
+    title: "Geospatial & Robotics",
+    subtitle: "Systems that perceive and navigate the physical world.",
     description:
-      "We build the brains of robots—perception, planning, and control systems that enable autonomous operation. From warehouse logistics to surgical assistance, we engineer robots that work alongside humans.",
+      "We build systems that understand space—from processing satellite imagery spanning continents to enabling robots that navigate dynamic environments. Our expertise spans the full perception-to-action pipeline: sensors, processing, spatial reasoning, and autonomous control.",
     capabilities: [
+      {
+        title: "Remote Sensing",
+        items: [
+          "Satellite imagery processing",
+          "Aerial/Drone analytics",
+          "LiDAR point clouds",
+          "Hyperspectral/Multispectral data",
+        ],
+      },
+      {
+        title: "Geospatial Analysis",
+        items: [
+          "GIS development",
+          "Vegetation analysis",
+          "Risk modeling",
+          "Change detection",
+          "3D terrain reconstruction",
+        ],
+      },
       {
         title: "Perception",
         items: [
-          "SLAM and localization",
           "Multi-sensor fusion",
-          "Object recognition",
+          "SLAM & localization",
+          "Indoor positioning",
           "Scene understanding",
+          "Object tracking",
         ],
       },
       {
-        title: "Planning",
+        title: "Robotics & Autonomy",
         items: [
+          "ROS2 development",
           "Motion planning",
-          "Task scheduling",
-          "Behavior trees",
-          "Multi-agent coordination",
-        ],
-      },
-      {
-        title: "Control",
-        items: [
-          "Trajectory tracking",
-          "Force control",
-          "Adaptive control",
-          "Safety systems",
+          "Behavior systems",
+          "Companion robotics",
+          "Field operations",
         ],
       },
     ],
     technologies: [
+      "QGIS",
+      "ParaView",
+      "GDAL",
+      "Rasterio",
+      "GeoPandas",
       "ROS2",
-      "Gazebo",
-      "MoveIt",
       "Nav2",
-      "OpenCV",
-      "PCL",
+      "MoveIt",
+      "Gazebo",
       "Isaac",
-      "Webots",
+      "LiDAR SDKs",
+      "PCL",
+      "OpenCV",
+      "Kalman Filters",
+      "SLAM",
     ],
   },
 };
@@ -212,7 +351,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
         <h2 className='mb-8 font-[family-name:var(--font-geist)] text-xl font-semibold text-text-primary'>
           Capabilities
         </h2>
-        <div className='grid gap-8 md:grid-cols-3'>
+        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
           {content.capabilities.map((capability) => (
             <div
               key={capability.title}
@@ -227,7 +366,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
                     key={item}
                     className='flex items-center text-sm text-text-secondary'
                   >
-                    <span className='mr-2 h-1 w-1 rounded-full bg-accent-green' />
+                    <span className='mr-2 h-1 w-1 rounded-full bg-green-500' />
                     {item}
                   </li>
                 ))}

@@ -21,7 +21,6 @@ export function Logo({ className = "", priority = false }: LogoProps) {
   useEffect(() => {
     // Try to detect logo in order of preference: SVG -> WebP -> PNG
     const formats = ["svg", "webp", "png"];
-    let foundLogo = false;
 
     const checkLogo = async () => {
       for (const format of formats) {
@@ -31,7 +30,6 @@ export function Logo({ className = "", priority = false }: LogoProps) {
           });
           if (response.ok) {
             setLogoSrc(`/logo/logo.${format}`);
-            foundLogo = true;
             break;
           }
         } catch {

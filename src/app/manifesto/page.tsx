@@ -24,13 +24,13 @@ const principles = [
     number: "03",
     title: "Ship Incrementally",
     description:
-      "We don't disappear for six months. We ship weekly, learn constantly, and iterate toward the right solution.",
+      "We prototype as we research. We ship weekly, learn constantly, and iterate toward the right solution—validating in practice, not just theory.",
   },
   {
     number: "04",
     title: "Own the Outcome",
     description:
-      "We're not vendors—we're partners. If it breaks at 3 AM, we're already debugging it.",
+      "We're fully responsible for project success. From inception to production, we work hand-in-hand with partners to ensure the best results.",
   },
   {
     number: "05",
@@ -44,31 +44,45 @@ const principles = [
     description:
       "Simple systems are reliable systems. We fight complexity at every layer—from architecture to APIs.",
   },
+  {
+    number: "07",
+    title: "Going Far Together",
+    description:
+      "We prefer long-term collaborations over short-term wins. Decade-long partnerships take both us and our clients to heights neither could reach alone.",
+  },
 ];
 
 const skills = [
-  { name: "Python", category: "ai" },
-  { name: "PyTorch", category: "ai" },
-  { name: "TensorFlow", category: "ai" },
-  { name: "CUDA", category: "ai" },
-  { name: "ONNX", category: "ai" },
-  { name: "C++", category: "embedded" },
+  // AI & Machine Learning
+  { name: "Python", category: "ai-ml" },
+  { name: "PyTorch", category: "ai-ml" },
+  { name: "TensorFlow", category: "ai-ml" },
+  { name: "LangChain", category: "ai-ml" },
+  { name: "OpenCV", category: "ai-ml" },
+  { name: "TensorRT", category: "ai-ml" },
+  { name: "Hugging Face", category: "ai-ml" },
+  // Data Engineering
+  { name: "PostgreSQL", category: "data" },
+  { name: "Kafka", category: "data" },
+  { name: "Spark", category: "data" },
+  { name: "dbt", category: "data" },
+  { name: "Snowflake", category: "data" },
+  { name: "Airflow", category: "data" },
+  // Embedded & Systems
+  { name: "C/C++", category: "embedded" },
+  { name: "LLVM", category: "embedded" },
+  { name: "FPGA", category: "embedded" },
+  { name: "RISC-V", category: "embedded" },
   { name: "Rust", category: "embedded" },
   { name: "Zephyr", category: "embedded" },
-  { name: "FPGA", category: "embedded" },
-  { name: "ARM", category: "embedded" },
+  // Geospatial & Robotics
   { name: "ROS2", category: "robotics" },
+  { name: "QGIS", category: "robotics" },
+  { name: "LiDAR", category: "robotics" },
   { name: "SLAM", category: "robotics" },
   { name: "Nav2", category: "robotics" },
-  { name: "MoveIt", category: "robotics" },
   { name: "Gazebo", category: "robotics" },
 ];
-
-const categoryColors = {
-  ai: "bg-accent-green/20 border-accent-green/30 text-accent-green",
-  embedded: "bg-accent-lime/20 border-accent-lime/30 text-accent-lime",
-  robotics: "bg-accent-emerald/20 border-accent-emerald/30 text-accent-emerald",
-};
 
 export default function ManifestoPage() {
   return (
@@ -92,7 +106,7 @@ export default function ManifestoPage() {
               key={principle.number}
               className='glass glass-glow rounded-2xl p-6'
             >
-              <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-accent-green'>
+              <span className='font-[family-name:var(--font-jetbrains-mono)] text-sm text-green-500'>
                 {principle.number}
               </span>
               <h3 className='mt-3 font-[family-name:var(--font-geist)] text-lg font-semibold text-text-primary'>
@@ -113,8 +127,9 @@ export default function ManifestoPage() {
             Our Brain
           </h2>
           <p className='mt-4 max-w-2xl text-text-secondary'>
-            A neural network of expertise—competencies that cluster around three
-            gravitational centers: AI, Embedded, and Robotics.
+            A neural network of expertise—competencies that cluster around four
+            gravitational centers: AI, Data, Embedded Systems, and
+            Geospatial/Robotics.
           </p>
 
           {/* Skill Nodes */}
@@ -122,36 +137,18 @@ export default function ManifestoPage() {
             {skills.map((skill) => (
               <span
                 key={skill.name}
-                className={`rounded-full border px-4 py-2 font-[family-name:var(--font-jetbrains-mono)] text-sm transition-all hover:scale-105 ${
-                  categoryColors[skill.category as keyof typeof categoryColors]
-                }`}
+                className='rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 font-[family-name:var(--font-jetbrains-mono)] text-sm text-green-400 transition-all hover:scale-105 hover:bg-green-500/20'
               >
                 {skill.name}
               </span>
             ))}
-          </div>
-
-          {/* Legend */}
-          <div className='mt-8 flex flex-wrap gap-6 text-sm'>
-            <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-green/50' />
-              <span className='text-text-muted'>AI / ML</span>
-            </div>
-            <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-lime/50' />
-              <span className='text-text-muted'>Embedded</span>
-            </div>
-            <div className='flex items-center gap-2'>
-              <span className='h-3 w-3 rounded-full bg-accent-emerald/50' />
-              <span className='text-text-muted'>Robotics</span>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Quote / Philosophy */}
       <section className='mx-auto max-w-[var(--content-width)] px-6 py-24'>
-        <blockquote className='border-l-2 border-accent-green pl-6'>
+        <blockquote className='border-l-2 border-green-500 pl-6'>
           <p className='font-[family-name:var(--font-geist)] text-xl font-medium italic text-text-primary md:text-2xl'>
             &ldquo;The best code is no code at all. The second best is code so
             clear it explains itself.&rdquo;

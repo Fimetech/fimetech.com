@@ -8,7 +8,7 @@ import { Card, CardDescription, CardTitle } from "@/components/ui";
 import { services } from "@/lib/constants";
 import Link from "next/link";
 
-const icons = {
+const icons: Record<string, React.ReactNode> = {
   "ai-ml": (
     <svg
       className='h-12 w-12'
@@ -20,6 +20,20 @@ const icons = {
       <circle cx='24' cy='24' r='20' />
       <circle cx='24' cy='24' r='8' />
       <path d='M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M10 38l6-6M32 16l6-6' />
+    </svg>
+  ),
+  data: (
+    <svg
+      className='h-12 w-12'
+      fill='none'
+      viewBox='0 0 48 48'
+      stroke='currentColor'
+      strokeWidth={1}
+    >
+      <ellipse cx='24' cy='10' rx='18' ry='6' />
+      <path d='M6 10v28c0 3.3 8 6 18 6s18-2.7 18-6V10' />
+      <path d='M6 19c0 3.3 8 6 18 6s18-2.7 18-6' />
+      <path d='M6 28c0 3.3 8 6 18 6s18-2.7 18-6' />
     </svg>
   ),
   embedded: (
@@ -43,11 +57,12 @@ const icons = {
       stroke='currentColor'
       strokeWidth={1}
     >
-      <circle cx='24' cy='14' r='10' />
-      <path d='M14 24v14a4 4 0 004 4h12a4 4 0 004-4V24' />
-      <circle cx='20' cy='12' r='2' fill='currentColor' />
-      <circle cx='28' cy='12' r='2' fill='currentColor' />
-      <path d='M8 28h6M34 28h6M20 34h8' />
+      <circle cx='24' cy='12' r='8' />
+      <path d='M14 20v16a4 4 0 004 4h12a4 4 0 004-4V20' />
+      <circle cx='21' cy='11' r='2' fill='currentColor' />
+      <circle cx='27' cy='11' r='2' fill='currentColor' />
+      <path d='M8 26h6M34 26h6M20 32h8' />
+      <path d='M24 4v-2M6 12l-4-2M42 12l4-2' />
     </svg>
   ),
 };
@@ -76,7 +91,7 @@ export function Services() {
 
         {/* Service Cards */}
         <StaggerContainer
-          className='grid gap-6 md:grid-cols-3'
+          className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'
           staggerDelay={0.15}
         >
           {services.map((service) => (
@@ -84,8 +99,8 @@ export function Services() {
               <Link href={service.href} className='block h-full'>
                 <Card interactive className='group h-full'>
                   {/* Icon */}
-                  <div className='mb-6 text-text-secondary transition-colors group-hover:text-accent-green'>
-                    {icons[service.id as keyof typeof icons]}
+                  <div className='mb-6 text-text-secondary transition-colors group-hover:text-green-500'>
+                    {icons[service.id]}
                   </div>
 
                   {/* Title */}
@@ -99,7 +114,7 @@ export function Services() {
                     {service.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className='rounded-full border border-glass-border bg-bg-elevated px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-text-muted'
+                        className='rounded-full border border-green-500/20 bg-green-500/5 px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-text-muted'
                       >
                         {tech}
                       </span>
@@ -107,7 +122,7 @@ export function Services() {
                   </div>
 
                   {/* Arrow */}
-                  <div className='mt-6 flex items-center text-sm text-text-muted transition-colors group-hover:text-accent-green'>
+                  <div className='mt-6 flex items-center text-sm text-text-muted transition-colors group-hover:text-green-500'>
                     <span>Learn more</span>
                     <svg
                       className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1'

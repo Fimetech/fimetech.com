@@ -15,28 +15,43 @@
   --bg-surface: #1a1a1a;
   --bg-elevated: rgba(255, 255, 255, 0.04);
 
-  /* Glass Effects (green-tinted) */
-  --glass-border: rgba(87, 172, 39, 0.12);
-  --glass-glow: rgba(87, 172, 39, 0.2);
+  /* Glass Effects */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: rgba(255, 255, 255, 0.1);
 
   /* Text */
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-muted: rgba(255, 255, 255, 0.5);
 
-  /* Accent Colors (green palette harmonizing with brand) */
-  --accent-green: #57ac27;
-  --accent-lime: #84cc16;
-  --accent-emerald: #10b981;
+  /*
+   * GREEN PALETTE - Single color family with gradients
+   * From darkest to lightest for consistent, professional look
+   */
+  --green-950: #052e0a;
+  --green-900: #0d3d0d;
+  --green-800: #166534;
+  --green-700: #15803d;
+  --green-600: #16a34a;
+  --green-500: #57ac27; /* Brand primary */
+  --green-400: #6fc83a;
+  --green-300: #86efac;
+  --green-200: #bbf7d0;
+  --green-100: #dcfce7;
 
-  /* Shadow Colors (for hover effects) */
+  /* Primary accent (brand green) */
+  --accent-primary: var(--green-500);
+  --accent-light: var(--green-400);
+  --accent-dark: var(--green-700);
+
+  /* Shadow Colors (green-based only) */
   --shadow-accent: rgba(87, 172, 39, 0.4);
   --shadow-accent-soft: rgba(87, 172, 39, 0.15);
 
   /* Gradient Colors (green-based) */
   --gradient-color-1: #1a1a1a;
   --gradient-color-2: #57ac27;
-  --gradient-color-3: #84cc16;
+  --gradient-color-3: #6fc83a;
   --gradient-color-4: #0d3d0d;
 
   /* Spacing */
@@ -69,10 +84,22 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
 
-  /* Accent Colors */
-  --color-accent-green: var(--accent-green);
-  --color-accent-lime: var(--accent-lime);
-  --color-accent-emerald: var(--accent-emerald);
+  /* Green Palette (single color family) */
+  --color-green-950: var(--green-950);
+  --color-green-900: var(--green-900);
+  --color-green-800: var(--green-800);
+  --color-green-700: var(--green-700);
+  --color-green-600: var(--green-600);
+  --color-green-500: var(--green-500);
+  --color-green-400: var(--green-400);
+  --color-green-300: var(--green-300);
+  --color-green-200: var(--green-200);
+  --color-green-100: var(--green-100);
+
+  /* Primary accent shortcuts */
+  --color-accent: var(--accent-primary);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
 
   /* Brand */
   --color-brand-primary: var(--brand-primary);

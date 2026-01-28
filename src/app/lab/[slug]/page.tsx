@@ -8,16 +8,11 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const categoryLabels = {
+const categoryLabels: Record<string, string> = {
   "ai-ml": "AI / ML",
+  data: "Data Engineering",
   embedded: "Embedded",
-  robotics: "Robotics",
-};
-
-const categoryColors = {
-  "ai-ml": "border-accent-green/30 bg-accent-green/10 text-accent-green",
-  embedded: "border-accent-lime/30 bg-accent-lime/10 text-accent-lime",
-  robotics: "border-accent-emerald/30 bg-accent-emerald/10 text-accent-emerald",
+  robotics: "Geospatial & Robotics",
 };
 
 export async function generateStaticParams() {
@@ -73,11 +68,7 @@ export default async function ProjectPage({ params }: Props) {
         </Link>
 
         {/* Category Badge */}
-        <span
-          className={`mb-4 inline-block rounded-full border px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs ${
-            categoryColors[project.category]
-          }`}
-        >
+        <span className='mb-4 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-green-400'>
           {categoryLabels[project.category]}
         </span>
 
@@ -94,7 +85,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className='grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4'>
               {project.metrics.map((metric) => (
                 <div key={metric.label}>
-                  <div className='font-[family-name:var(--font-jetbrains-mono)] text-3xl font-bold text-accent-green'>
+                  <div className='font-[family-name:var(--font-jetbrains-mono)] text-3xl font-bold text-green-500'>
                     {metric.value}
                   </div>
                   <div className='mt-1 text-sm text-text-muted'>
@@ -160,6 +151,61 @@ export default async function ProjectPage({ params }: Props) {
 
           {/* Sidebar */}
           <div className='space-y-8'>
+            {/* Project Info */}
+            <div className='glass glass-glow rounded-2xl p-6'>
+              <h3 className='mb-4 font-[family-name:var(--font-jetbrains-mono)] text-sm text-text-muted'>
+                Project Info
+              </h3>
+              <dl className='space-y-3 text-sm'>
+                {project.industry && (
+                  <div>
+                    <dt className='text-text-muted'>Industry</dt>
+                    <dd className='text-text-primary'>{project.industry}</dd>
+                  </div>
+                )}
+                {project.clientType && (
+                  <div>
+                    <dt className='text-text-muted'>Client Type</dt>
+                    <dd className='text-text-primary'>{project.clientType}</dd>
+                  </div>
+                )}
+                {project.duration && (
+                  <div>
+                    <dt className='text-text-muted'>Duration</dt>
+                    <dd className='text-text-primary'>{project.duration}</dd>
+                  </div>
+                )}
+                {project.externalUrl && (
+                  <div>
+                    <dt className='text-text-muted'>Website</dt>
+                    <dd>
+                      <a
+                        href={project.externalUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-green-500 hover:text-green-400 hover:underline'
+                      >
+                        Visit site
+                        <svg
+                          className='ml-1 inline-block h-3 w-3'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+                          />
+                        </svg>
+                      </a>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            </div>
+
             {/* Technologies */}
             <div className='glass glass-glow rounded-2xl p-6'>
               <h3 className='mb-4 font-[family-name:var(--font-jetbrains-mono)] text-sm text-text-muted'>
@@ -189,7 +235,7 @@ export default async function ProjectPage({ params }: Props) {
                       p.category === project.category &&
                       p.slug !== project.slug,
                   )
-                  .slice(0, 2)
+                  .slice(0, 3)
                   .map((p) => (
                     <Link
                       key={p.slug}

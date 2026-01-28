@@ -10,7 +10,7 @@ export function CTA() {
   return (
     <section className='relative flex min-h-[60vh] items-center justify-center py-[var(--space-section)]'>
       {/* Subtle gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-accent-green/5 to-transparent' />
+      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent' />
 
       <div className='relative mx-auto max-w-[var(--content-width)] px-6 text-center'>
         <RevealOnScroll>

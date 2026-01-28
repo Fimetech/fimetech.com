@@ -92,6 +92,7 @@ You'll see something like:
 ## Step 3: Add Secrets to GitHub
 
 1. **Go to your GitHub repository:**
+
    ```
    https://github.com/Fimetech/fimetech.com
    ```
@@ -236,6 +237,7 @@ Following [Vercel's official pattern](https://github.com/vercel/examples/tree/ma
 - **`production.yaml`**: Runs **only** on main branch → Creates production deployments
 
 This separation provides:
+
 - ✅ Clear separation of concerns
 - ✅ Different build/deploy strategies per environment
 - ✅ Easier debugging (separate logs per environment)

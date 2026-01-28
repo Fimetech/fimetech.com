@@ -9,16 +9,11 @@ export const metadata: Metadata = {
     "Case studies and technical deep-dives from our engineering projects.",
 };
 
-const categoryLabels = {
+const categoryLabels: Record<string, string> = {
   "ai-ml": "AI / ML",
+  data: "Data Engineering",
   embedded: "Embedded",
-  robotics: "Robotics",
-};
-
-const categoryColors = {
-  "ai-ml": "border-accent-green/30 bg-accent-green/10 text-accent-green",
-  embedded: "border-accent-lime/30 bg-accent-lime/10 text-accent-lime",
-  robotics: "border-accent-emerald/30 bg-accent-emerald/10 text-accent-emerald",
+  robotics: "Geospatial & Robotics",
 };
 
 export default function LabPage() {
@@ -52,15 +47,11 @@ export default function LabPage() {
             >
               <Card interactive className='h-full'>
                 {/* Category Badge */}
-                <span
-                  className={`mb-4 inline-block rounded-full border px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs ${
-                    categoryColors[project.category]
-                  }`}
-                >
+                <span className='mb-4 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-green-400'>
                   {categoryLabels[project.category]}
                 </span>
 
-                <CardTitle className='mb-2 group-hover:text-accent-green transition-colors'>
+                <CardTitle className='mb-2 transition-colors group-hover:text-green-500'>
                   {project.title}
                 </CardTitle>
                 <CardDescription className='mb-4'>
@@ -72,7 +63,7 @@ export default function LabPage() {
                   <div className='mb-4 grid grid-cols-3 gap-4'>
                     {project.metrics.map((metric) => (
                       <div key={metric.label}>
-                        <div className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-accent-green'>
+                        <div className='font-[family-name:var(--font-jetbrains-mono)] text-lg font-semibold text-green-500'>
                           {metric.value}
                         </div>
                         <div className='text-xs text-text-muted'>
@@ -114,14 +105,10 @@ export default function LabPage() {
                 className='group block'
               >
                 <Card interactive className='h-full'>
-                  <span
-                    className={`mb-3 inline-block rounded-full border px-2 py-0.5 font-[family-name:var(--font-jetbrains-mono)] text-xs ${
-                      categoryColors[project.category]
-                    }`}
-                  >
+                  <span className='mb-3 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-2 py-0.5 font-[family-name:var(--font-jetbrains-mono)] text-xs text-green-400'>
                     {categoryLabels[project.category]}
                   </span>
-                  <h3 className='font-[family-name:var(--font-geist)] font-semibold text-text-primary group-hover:text-accent-green transition-colors'>
+                  <h3 className='font-[family-name:var(--font-geist)] font-semibold text-text-primary transition-colors group-hover:text-green-500'>
                     {project.title}
                   </h3>
                   <p className='mt-1 text-sm text-text-secondary'>
