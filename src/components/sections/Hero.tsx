@@ -3,34 +3,13 @@
 import { ButtonLink } from "@/components/ui";
 import { siteConfig } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Hero section with futuristic geometric grid and particle effects
  */
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-
-      setMousePosition({ x, y });
-    };
-
-    const container = containerRef.current;
-    container?.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      container?.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
 
   // Particle system animation with green color variants
   useEffect(() => {
@@ -136,23 +115,12 @@ export function Hero() {
   }, []);
 
   return (
-    <section
-      ref={containerRef}
-      className='relative flex min-h-screen items-center justify-center overflow-hidden'
-    >
+    <section className='relative flex min-h-screen items-center justify-center overflow-hidden'>
       {/* Base dark gradient */}
       <div className='hero-base-gradient' />
 
       {/* Geometric grid pattern */}
       <div className='hero-grid-pattern' />
-
-      {/* Interactive glow that follows mouse */}
-      <div
-        className='hero-interactive-glow'
-        style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(87, 172, 39, 0.15), transparent 40%)`,
-        }}
-      />
 
       {/* Particle system canvas */}
       <canvas

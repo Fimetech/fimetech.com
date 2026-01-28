@@ -206,14 +206,6 @@ body {
   }
 }
 
-/* Interactive glow layer */
-.hero-interactive-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  transition: background 0.2s ease-out;
-}
-
 /* Scan lines for tech aesthetic */
 .hero-scan-lines {
   position: absolute;
