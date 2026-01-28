@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+/* ========================================
+   FIMETECH DESIGN SYSTEM TOKENS
+   ======================================== */
+
+:root {
+  /* Backgrounds */
+  --bg-void: #050508;
+  --bg-surface: #0a0f1a;
+  --bg-elevated: rgba(255, 255, 255, 0.03);
+
+  /* Glass */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: rgba(0, 102, 255, 0.15);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  /* Accent */
+  --accent-blue: #0066ff;
+  --accent-teal: #00d4aa;
+  --accent-purple: #7c3aed;
+
+  /* Gradient Colors */
+  --gradient-color-1: #0a0f1a;
+  --gradient-color-2: #0066ff;
+  --gradient-color-3: #00d4aa;
+  --gradient-color-4: #4a0080;
+
+  /* Spacing */
+  --space-section: clamp(6rem, 10vh, 12rem);
+  --space-block: clamp(3rem, 5vh, 6rem);
+  --content-width: min(1200px, 90vw);
+
+  /* Typography Scale (fluid) */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1rem + 1.25vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+  --text-2xl: clamp(2rem, 1rem + 5vw, 4rem);
+  --text-hero: clamp(3rem, 2rem + 8vw, 7.5rem);
+}
+
+@theme inline {
+  --color-bg-void: var(--bg-void);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-glass-border: var(--glass-border);
+  --color-glass-glow: var(--glass-glow);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-purple: var(--accent-purple);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-geist);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-blue);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   GLASS EFFECTS
+   ======================================== */
+
+.glass {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-glow {
+  box-shadow:
+    0 0 0 1px var(--glass-border),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-hover {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-hover:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 0 1px rgba(0, 102, 255, 0.3),
+    0 0 30px rgba(0, 102, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   HERO GRADIENT MESH
+   ======================================== */
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 50% 50%,
+      var(--gradient-color-2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 20%,
+      var(--gradient-color-3) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse 50% 60% at 20% 80%,
+      var(--gradient-color-4) 0%,
+      transparent 50%
+    ),
+    var(--gradient-color-1);
+  opacity: 0.8;
+  animation: gradientShift 20s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+/* ========================================
+   TECH TICKER
+   ======================================== */
+
+.ticker-wrapper {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+}
+
+.ticker-track-reverse {
+  animation-direction: reverse;
+}
+
+.ticker-wrapper:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   FOCUS STYLES
+   ======================================== */
+
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   SKIP LINK
+   ======================================== */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-blue);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
