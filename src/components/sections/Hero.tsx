@@ -168,19 +168,6 @@ export function Hero() {
 
       {/* Content */}
       <div className='relative z-10 mx-auto max-w-[var(--content-width)] px-6 text-center'>
-        {/* Logo */}
-        <motion.h1
-          className='font-[family-name:var(--font-geist)] text-[var(--text-hero)] font-bold tracking-[-0.03em] text-text-primary'
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            textShadow: "0 0 80px rgba(87, 172, 39, 0.3)",
-          }}
-        >
-          {siteConfig.name.toUpperCase()}
-        </motion.h1>
-
         {/* Tagline */}
         <motion.p
           className='mx-auto mt-6 max-w-xl text-lg text-text-secondary md:text-xl'
