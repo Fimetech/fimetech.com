@@ -3,7 +3,7 @@ import {
   Hero,
   LabTeaser,
   Services,
-  TechTicker,
+  TechStack,
 } from "@/components/sections";
 
 /**
@@ -20,7 +20,7 @@ export default function HomePage() {
       <Services />
 
       {/* Block 3: Trust - "The Stack" */}
-      <TechTicker />
+      <TechStack />
 
       {/* Block 4: Lab Teaser - "The Window" */}
       <LabTeaser />

@@ -55,8 +55,8 @@ export function Hero() {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.2,
+        size: Math.random() * 2.5 + 1.5,
+        opacity: Math.random() * 0.5 + 0.35,
         color: greenShades[Math.floor(Math.random() * greenShades.length)],
       });
     }
@@ -95,9 +95,9 @@ export function Hero() {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            const opacity = (1 - distance / connectionDistance) * 0.15;
+            const opacity = (1 - distance / connectionDistance) * 0.25;
             ctx.strokeStyle = `rgba(87, 172, 39, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         });
@@ -125,7 +125,7 @@ export function Hero() {
       {/* Particle system canvas */}
       <canvas
         ref={canvasRef}
-        className='pointer-events-none absolute inset-0 opacity-60'
+        className='pointer-events-none absolute inset-0 opacity-80'
       />
 
       {/* Scan lines for tech aesthetic */}

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const icons = {
   "ai-ml": (
     <svg
-      className='h-16 w-16'
+      className='h-14 w-14'
       fill='none'
       viewBox='0 0 48 48'
       stroke='currentColor'
@@ -23,9 +23,23 @@ const icons = {
       <path d='M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M10 38l6-6M32 16l6-6' />
     </svg>
   ),
+  data: (
+    <svg
+      className='h-14 w-14'
+      fill='none'
+      viewBox='0 0 48 48'
+      stroke='currentColor'
+      strokeWidth={1}
+    >
+      <ellipse cx='24' cy='10' rx='18' ry='6' />
+      <path d='M6 10v28c0 3.3 8 6 18 6s18-2.7 18-6V10' />
+      <path d='M6 19c0 3.3 8 6 18 6s18-2.7 18-6' />
+      <path d='M6 28c0 3.3 8 6 18 6s18-2.7 18-6' />
+    </svg>
+  ),
   embedded: (
     <svg
-      className='h-16 w-16'
+      className='h-14 w-14'
       fill='none'
       viewBox='0 0 48 48'
       stroke='currentColor'
@@ -38,7 +52,7 @@ const icons = {
   ),
   robotics: (
     <svg
-      className='h-16 w-16'
+      className='h-14 w-14'
       fill='none'
       viewBox='0 0 48 48'
       stroke='currentColor'
@@ -67,24 +81,26 @@ export default function ExpertisePage() {
         </p>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - 4 cards in responsive 2x2 / 4-col layout */}
       <section className='mx-auto max-w-[var(--content-width)] px-6 pb-24'>
-        <div className='grid gap-8 md:grid-cols-3'>
+        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
           {services.map((service) => (
             <Link key={service.id} href={service.href} className='block group'>
-              <Card interactive className='h-full'>
-                <div className='mb-6 text-text-secondary transition-colors group-hover:text-green-500'>
+              <Card interactive className='flex h-full flex-col'>
+                <div className='mb-4 text-text-secondary transition-colors group-hover:text-green-500'>
                   {icons[service.id as keyof typeof icons]}
                 </div>
-                <CardTitle className='mb-3'>{service.title}</CardTitle>
-                <CardDescription className='mb-6'>
+                <CardTitle className='mb-2 text-base'>
+                  {service.title}
+                </CardTitle>
+                <CardDescription className='mb-4 flex-1 text-sm'>
                   {service.description}
                 </CardDescription>
-                <div className='flex flex-wrap gap-2'>
+                <div className='flex flex-wrap gap-1.5'>
                   {service.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className='rounded-full border border-glass-border bg-bg-elevated px-3 py-1 font-[family-name:var(--font-jetbrains-mono)] text-xs text-text-muted'
+                      className='rounded-full border border-glass-border bg-bg-elevated px-2.5 py-0.5 font-[family-name:var(--font-jetbrains-mono)] text-xs text-text-muted'
                     >
                       {tech}
                     </span>
