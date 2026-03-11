@@ -64,7 +64,6 @@ export const siteConfig = {
  */
 export const navLinks = [
   { href: "/expertise", label: "Expertise" },
-  { href: "/about", label: "About Us" },
   { href: "/lab", label: "Lab" },
   { href: "/manifesto", label: "Manifesto" },
   { href: "/connect", label: "Connect" },
