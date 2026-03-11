@@ -1,0 +1,50 @@
+# Core dependency / package manager noise
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Build outputs and caches
+.next/
+out/
+build/
+coverage/
+.vercel/
+.turbo/
+dist/
+.cache/
+.tmp/
+temp/
+tmp/
+
+# TypeScript / Next generated files
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+
+# Optional: lockfile is rarely useful for semantic indexing
+package-lock.json
+
+# Optional: setup/deploy docs that usually don't matter in daily feature work
+DEPLOYMENT.md
+SETUP-INSTRUCTIONS.md
+.github/QUICKSTART.md
+.github/SETUP_SECRETS.md
