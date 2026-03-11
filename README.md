@@ -46,7 +46,7 @@ npm start
 
 ## Project Structure
 
-```
+```text
 fimetech.com/
 ├── src/
 │   ├── app/                    # App Router pages
@@ -119,7 +119,7 @@ git push -u origin main
 2. **Add domain:** `fimetech.com`
 3. **Update DNS records** at your domain registrar:
 
-   ```
+   ```text
    Type: A
    Name: @
    Value: 76.76.19.61
@@ -169,11 +169,14 @@ npm run lint     # Run ESLint
 
 ### Environment Variables
 
-Copy `.env.example` to `.env.local` for local development:
+Create a `.env.local` file in the root directory for local development:
 
 ```bash
-cp .env.example .env.local
+# Create local environment file
+touch .env.local
 ```
+
+Add any required environment variables to `.env.local`. For development, the project may work without any variables configured.
 
 ## Performance
 
